@@ -1,0 +1,29 @@
+.square-btn {
+  border: 0.1rem solid black;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.red {
+  border: 0.1rem solid var(--red-dark);
+  color: var(--red-dark);
+  stroke: var(--red-dark);
+}
+.blue {
+  border: 0.1rem solid var(--blue-dark);
+  color: var(--blue-dark);
+  stroke: var(--blue-dark);
+}
+.yellow {
+  border: 0.1rem solid var(--yellow-dark);
+  color: var(--yellow-dark);
+  stroke: var(--yellow-dark);
+}
+.green {
+  border: 0.1rem solid var(--green-dark);
+  color: var(--green-dark);
+  stroke: var(--green-dark);
+}

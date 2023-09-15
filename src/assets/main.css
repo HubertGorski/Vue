@@ -1,0 +1,16 @@
+@import "./base.css";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* font-size: 10px; */
+  font-size: 62.5%;
+}
+
+#app {
+  padding: 1.2rem;
+}
