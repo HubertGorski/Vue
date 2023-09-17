@@ -1,5 +1,7 @@
 @import "./base.css";
 
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
 * {
   padding: 0;
   margin: 0;
@@ -9,8 +11,11 @@
 html {
   /* font-size: 10px; */
   font-size: 62.5%;
+  color: #333;
+  font-family: "PT Sans", sans-serif;
 }
 
 #app {
-  padding: 1.2rem;
+  padding: 0.6rem;
+  overflow: hidden;
 }

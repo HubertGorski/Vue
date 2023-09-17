@@ -1,11 +1,27 @@
 import { Task } from "@/components/tasks/Task";
 
 export const tasks = [
-  new Task("1", "GREEN title1", "GREEN description1", false, "", "", "", "", 3),
+  new Task(
+    "13",
+    "GREEN title1",
+    "GREEN description1",
+    false,
+    false,
+    false,
+    false,
+    "",
+    "",
+    "",
+    "",
+    3
+  ),
   new Task(
     "2",
     "GREEN title2",
     "GREEN description2",
+    false,
+    false,
+    false,
     false,
     "",
     "",
@@ -13,11 +29,27 @@ export const tasks = [
     "",
     -2
   ),
-  new Task("3", "GREEN title3", "GREEN description3", false, "", "", "", "", 5),
   new Task(
-    "4",
+    "14",
+    "GREEN title3",
+    "GREEN description3",
+    false,
+    false,
+    false,
+    false,
+    "",
+    "",
+    "",
+    "",
+    5
+  ),
+  new Task(
+    "15",
     "GREEN title4",
     "GREEN description4",
+    false,
+    false,
+    false,
     false,
     "",
     "",
@@ -26,9 +58,12 @@ export const tasks = [
     -14
   ),
   new Task(
-    "5",
+    "16",
     "GREEN title5",
     "GREEN description5",
+    false,
+    false,
+    false,
     false,
     "",
     "",
@@ -36,5 +71,18 @@ export const tasks = [
     "",
     12
   ),
-  new Task("6", "GREEN title6", "GREEN description6", false, "", "", "", "", 8),
+  new Task(
+    "17",
+    "GREEN title6",
+    "GREEN description6",
+    false,
+    false,
+    false,
+    false,
+    "",
+    "",
+    "",
+    "",
+    8
+  ),
 ];

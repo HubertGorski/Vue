@@ -3,3 +3,8 @@ export enum FILTER_STATUS {
   UNDONE = "undone",
   ALL = "all",
 }
+
+export function getFilterStatus(index: number) {
+  const filterStatuses = Object.values(FILTER_STATUS);
+  return filterStatuses[index];
+}

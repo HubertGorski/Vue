@@ -1,29 +1,10 @@
 .square-btn {
-  border: 0.1rem solid black;
-  border-radius: 0.6rem;
+  // border: 0.1rem solid black;
+  border-radius: 0.3rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.3) 0px 0px 0px 1px;
   cursor: pointer;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.red {
-  border: 0.1rem solid var(--red-dark);
-  color: var(--red-dark);
-  stroke: var(--red-dark);
-}
-.blue {
-  border: 0.1rem solid var(--blue-dark);
-  color: var(--blue-dark);
-  stroke: var(--blue-dark);
-}
-.yellow {
-  border: 0.1rem solid var(--yellow-dark);
-  color: var(--yellow-dark);
-  stroke: var(--yellow-dark);
-}
-.green {
-  border: 0.1rem solid var(--green-dark);
-  color: var(--green-dark);
-  stroke: var(--green-dark);
 }

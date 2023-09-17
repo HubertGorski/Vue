@@ -40,7 +40,7 @@ defineProps<{
 
 <style lang="scss" scoped>
 svg {
-  max-width: 4.8rem;
-  max-height: 2.4rem;
+  max-width: 4.2rem;
+  max-height: 2rem;
 }
 </style>

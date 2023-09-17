@@ -1,49 +1,24 @@
 <script setup lang="ts">
 import "@/assets/buttonSquare.scss";
-import { FILTER_STATUS } from "./EnumsFilterStatus";
-import { computed, ref, toRefs } from "vue";
+import { computed, ref } from "vue";
+import { changeState } from "../Button3Statuses";
 import IconFilterStatus from "./IconFilterStatus.vue";
-import type { Team } from "@/components/teams/Team";
-const status = ref(FILTER_STATUS.ALL);
-const props = defineProps<{
-  team: Team;
-}>();
-const { team } = toRefs(props);
-const sortBtn = computed(() => ({
-  enableSort:
-    status.value === FILTER_STATUS.DONE ||
-    status.value === FILTER_STATUS.UNDONE,
-  disableSort: status.value === FILTER_STATUS.ALL,
+import { getFilterStatus } from "./EnumsFilterStatus";
+const statusNumber = ref<number>(2);
+const sortStatus = computed(() => ({
+  enableSort: statusNumber.value === 0 || statusNumber.value === 1,
+  disableSort: statusNumber.value === 2,
 }));
 function updateFilter() {
-  console.log("get tasks from database");
-  changeIconState();
-}
-
-function changeIconState() {
-  if (status.value === FILTER_STATUS.ALL) {
-    status.value = FILTER_STATUS.DONE;
-    return;
-  }
-  if (status.value === FILTER_STATUS.DONE) {
-    status.value = FILTER_STATUS.UNDONE;
-    return;
-  }
-  if (status.value === FILTER_STATUS.UNDONE) {
-    status.value = FILTER_STATUS.ALL;
-    return;
-  }
+  console.log("filtrowanie po statusie");
+  statusNumber.value = changeState(statusNumber.value);
 }
 </script>
 
 <template>
   <div>
-    <div
-      :class="[team.color, sortBtn]"
-      class="square-btn"
-      @click="updateFilter()"
-    >
-      <IconFilterStatus :status="status" />
+    <div :class="sortStatus" class="square-btn" @click="updateFilter()">
+      <IconFilterStatus :status="getFilterStatus(statusNumber)" />
     </div>
   </div>
 </template>

@@ -13,7 +13,11 @@ import { RouterLink, RouterView } from "vue-router";
       </nav>
     </div>
   </header>
-  <RouterView />
+  <Transition name="task-details">
+    <RouterView v-slot="{ Component }">
+      <component :is="Component" />
+    </RouterView>
+  </Transition>
 </template>
 
 <style lang="scss" scoped>
@@ -29,5 +33,17 @@ import { RouterLink, RouterView } from "vue-router";
     text-decoration: none;
     color: #1f1f1f;
   }
+}
+.task-details-enter-active {
+  transition: all 0.4s ease-out;
+}
+
+.task-details-leave-active {
+  transition: all 0.4s;
+}
+
+.task-details-enter-from,
+.task-details-leave-to {
+  opacity: 0;
 }
 </style>

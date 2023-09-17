@@ -2,7 +2,10 @@ export class Task {
   id: string;
   title: string;
   description: string;
-  isDone: boolean;
+  isDoneRed: boolean;
+  isDoneYellow: boolean;
+  isDoneBlue: boolean;
+  isDoneGreen: boolean;
   creater: string;
   createDate: string;
   accepter: string;
@@ -13,7 +16,10 @@ export class Task {
     id: string,
     title: string,
     description: string,
-    isDone: boolean,
+    isDoneRed: boolean,
+    isDoneYellow: boolean,
+    isDoneBlue: boolean,
+    isDoneGreen: boolean,
     creater: string,
     createDate: string,
     accepter: string,
@@ -23,7 +29,10 @@ export class Task {
     this.id = id;
     this.title = title;
     this.description = description;
-    this.isDone = isDone;
+    this.isDoneRed = isDoneRed;
+    this.isDoneYellow = isDoneYellow;
+    this.isDoneBlue = isDoneBlue;
+    this.isDoneGreen = isDoneGreen;
     this.creater = creater;
     this.createDate = createDate;
     this.accepter = accepter;

@@ -2,8 +2,8 @@
 :root {
   --red-light: #da0000;
   --red-dark: #930000;
-  --yellow-light: #d0d000;
-  --yellow-dark: #939300;
+  --yellow-light: rgb(255, 149, 0);
+  --yellow-dark: rgb(255, 149, 0);
   --blue-light: #0014ca;
   --blue-dark: #000f93;
   --green-light: #1cd600;

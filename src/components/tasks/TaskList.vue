@@ -8,6 +8,7 @@ import { Task } from "./Task";
 
 const props = defineProps<{
   team: Team;
+  detailsTask: boolean;
 }>();
 const { team } = toRefs(props);
 
@@ -32,6 +33,9 @@ const addNewTask = (newTask: Task) => {
       newTask.title,
       newTask.description,
       false,
+      false,
+      false,
+      false,
       "Hubi",
       currentDate(),
       "",
@@ -45,7 +49,13 @@ const addNewTask = (newTask: Task) => {
 
 <template>
   <div>
-    <NewTaskElement @create-task="addNewTask" />
-    <TaskElement :task="task" v-for="task in allTasks" :key="task.id" />
+    <NewTaskElement v-if="false" @create-task="addNewTask" />
+    <TaskElement
+      :detailsTask="detailsTask"
+      :task="task"
+      :team="team"
+      v-for="task in allTasks"
+      :key="task.id"
+    />
   </div>
 </template>

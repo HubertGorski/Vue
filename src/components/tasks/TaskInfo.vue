@@ -9,16 +9,68 @@ defineProps<{
 
 <template>
   <div class="task-info">
-    <h2 class="title">{{ task.title }}</h2>
-    <Transition mode="out-in">
-      <p class="description" v-if="moreInfo">
-        {{ task.description }}
-      </p>
-    </Transition>
+    <div class="task-info__header">
+      <div class="teamsStatuses">
+        <div class="team team1"></div>
+        <div class="team team2"></div>
+        <div class="team team3"></div>
+        <div class="team team4"></div>
+      </div>
+      <h2 class="title">{{ task.title }}</h2>
+    </div>
+    <div class="description">
+      <Transition mode="out-in">
+        <p class="description__content" v-if="moreInfo">
+          {{ task.description }}
+        </p>
+      </Transition>
+    </div>
   </div>
 </template>
 
 <style scoped>
+.task-info__header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.teamsStatuses {
+  display: grid;
+  grid-template-columns: 6px 6px;
+  grid-template-rows: 6px 6px;
+  gap: 0.4rem;
+  .description {
+    padding: 0.6rem 2.4rem;
+  }
+  .team {
+    width: 100%;
+    height: 100%;
+    &.team1 {
+      background-color: rgb(255, 149, 0);
+    }
+    &.team2 {
+      background-color: red;
+    }
+    &.team3 {
+      background-color: green;
+    }
+    &.team4 {
+      background-color: blue;
+    }
+  }
+}
+.task-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .title {
+    font-weight: 500;
+    color: #222;
+  }
+  .description {
+    padding: 0.6rem 2.4rem;
+  }
+}
 .v-enter-to,
 .v-leave-from {
   transition: max-height 1s;
@@ -33,11 +85,8 @@ defineProps<{
 }
 
 .task-info {
-  border: 0.1rem solid black;
-  border-radius: 0.6rem;
   padding: 0.6rem;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   overflow: hidden;
 }
 </style>
-./tasks/Task

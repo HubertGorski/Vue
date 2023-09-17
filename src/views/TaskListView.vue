@@ -2,19 +2,24 @@
 import TaskList from "@/components/tasks/TaskList.vue";
 import NavPanel from "@/components/NavPanel.vue";
 import { teams } from "@/components/teams/TeamsList";
-import { computed, reactive, ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
 import type { Team } from "@/components/teams/Team";
 import FilterPanel from "@/components/filters/FilterPanel.vue";
 import { TEAM_COLOR } from "@/components/teams/EnumTeamColor";
 
-const activeTeam = ref<Team>(teams.yellowTeam);
+const activeTeam = ref<Team>(teams[1]);
+const detailsTasks = ref<boolean>(false);
 const transitionName = ref("slide-right");
 function changeTeam(selectTeam: Team) {
   activeTeam.value = selectTeam;
 }
 watch(activeTeam, (val, old) => {
   transitionName.value = val.id > old.id ? "slide-left" : "slide-right";
+  detailsTasks.value = false;
 });
+function setDetailsTask(detailsTask: boolean) {
+  detailsTasks.value = detailsTask;
+}
 
 const color = computed(() => ({
   green: activeTeam.value.color === TEAM_COLOR.GREEN,
@@ -31,23 +36,32 @@ const header = computed(() => ({
 </script>
 
 <template>
-  <div>
-    <Transition mode="out-in" name="header2">
+  <div class="task-list-view">
+    <Transition mode="out-in" name="nameTeam">
       <div :key="activeTeam.id" class="header" :class="header">
         {{ activeTeam.name }}
       </div>
     </Transition>
     <FilterPanel :key="activeTeam.id" :team="activeTeam" />
     <Transition :name="transitionName" mode="out-in">
-      <div :key="activeTeam.id">
-        <TaskList :team="activeTeam" />
+      <div class="task-list" :key="activeTeam.id">
+        <TaskList :detailsTask="detailsTasks" :team="activeTeam" />
       </div>
     </Transition>
+    <NavPanel
+      @details-task="setDetailsTask"
+      @change-team="changeTeam"
+      :activeTeam="activeTeam"
+    />
   </div>
-  <NavPanel @change-team="changeTeam" :color="color" />
 </template>
 
 <style lang="scss" scoped>
+.task-list {
+  height: 50rem;
+  overflow-y: scroll;
+  border-bottom: 0.1rem solid #bbbbbb;
+}
 .header {
   padding: 0.6rem;
   display: flex;
@@ -70,13 +84,13 @@ const header = computed(() => ({
   }
 }
 
-.header2-enter-active,
-.header2-leave-active {
+.nameTeam-enter-active,
+.nameTeam-leave-active {
   transition: opacity 0.5s ease;
 }
 
-.header2-enter-from,
-.header2-leave-to {
+.nameTeam-enter-from,
+.nameTeam-leave-to {
   opacity: 0;
 }
 .slide-right-enter-from,
