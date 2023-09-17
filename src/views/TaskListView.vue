@@ -32,22 +32,26 @@ const header = computed(() => ({
 
 <template>
   <div>
-    <Transition mode="out-in" name="header2">
+    <Transition mode="out-in" name="nameTeam">
       <div :key="activeTeam.id" class="header" :class="header">
         {{ activeTeam.name }}
       </div>
     </Transition>
     <FilterPanel :key="activeTeam.id" :team="activeTeam" />
     <Transition :name="transitionName" mode="out-in">
-      <div :key="activeTeam.id">
+      <div class="task-list" :key="activeTeam.id">
         <TaskList :team="activeTeam" />
       </div>
     </Transition>
+    <NavPanel @change-team="changeTeam" :activeTeam="activeTeam" />
   </div>
-  <NavPanel @change-team="changeTeam" :color="color" />
 </template>
 
 <style lang="scss" scoped>
+.task-list {
+  height: 50rem;
+  overflow-y: scroll;
+}
 .header {
   padding: 0.6rem;
   display: flex;
@@ -70,13 +74,13 @@ const header = computed(() => ({
   }
 }
 
-.header2-enter-active,
-.header2-leave-active {
+.nameTeam-enter-active,
+.nameTeam-leave-active {
   transition: opacity 0.5s ease;
 }
 
-.header2-enter-from,
-.header2-leave-to {
+.nameTeam-enter-from,
+.nameTeam-leave-to {
   opacity: 0;
 }
 .slide-right-enter-from,

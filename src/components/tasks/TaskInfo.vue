@@ -19,6 +19,11 @@ defineProps<{
 </template>
 
 <style scoped>
+.task-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .v-enter-to,
 .v-leave-from {
   transition: max-height 1s;
@@ -33,11 +38,8 @@ defineProps<{
 }
 
 .task-info {
-  border: 0.1rem solid black;
-  border-radius: 0.6rem;
   padding: 0.6rem;
   font-size: 1.6rem;
   overflow: hidden;
 }
 </style>
-./tasks/Task
